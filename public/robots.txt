@@ -1,0 +1,18 @@
+# 🤖 robots.txt for Creative Coding Community (C3)
+# Allow search engines to index the main site but not the admin panel
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login
+Disallow: /dashboard
+Disallow: /settings
+
+# Sitemap link (important for SEO crawling)
+Sitemap: https://c3community.netlify.app/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 10
+
+# 👇 Friendly note (visible to bots)
+# Developed by Creative Coding Community | GEC Samastipur

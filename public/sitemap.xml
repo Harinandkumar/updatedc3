@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 🌐 Home Page -->
+  <url>
+    <loc>https://c3community.netlify.app/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 👥 Team Page -->
+  <url>
+    <loc>https://c3community.netlify.app/team</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 🖼️ Gallery -->
+  <url>
+    <loc>https://c3community.netlify.app/gallery</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 🧠 Exam Portal -->
+  <url>
+    <loc>https://examplatform-1.onrender.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 📢 Notices Section -->
+  <url>
+    <loc>https://c3community.netlify.app/#notices</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 📅 Events Section -->
+  <url>
+    <loc>https://c3community.netlify.app/#events</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 📬 Contact Section -->
+  <url>
+    <loc>https://c3community.netlify.app/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
