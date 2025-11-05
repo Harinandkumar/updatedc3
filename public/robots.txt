@@ -9,7 +9,7 @@ Disallow: /dashboard
 Disallow: /settings
 
 # Sitemap link (important for SEO crawling)
-Sitemap: https://c3community.netlify.app/sitemap.xml
+Sitemap: https://c3community.onrender.com/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 10

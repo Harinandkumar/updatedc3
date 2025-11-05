@@ -29,7 +29,9 @@ const PORT = process.env.PORT || 3000;
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, 'views'));
 
+  // ✅ Public folder serve for images, sitemap, robots.txt
   app.use(express.static(path.join(__dirname, 'public')));
+
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(methodOverride('_method'));
@@ -55,6 +57,17 @@ const PORT = process.env.PORT || 3000;
   // ========================================
   app.use('/', publicRoutes); // Home, Gallery, Events, Notices
   app.use('/admin', adminRoutes); // Admin panel
+
+  // ========================================
+  // 🗺️ SITEMAP + ROBOTS ROUTE (Optional Safety Layer)
+  // ========================================
+  app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'robots.txt'));
+  });
 
   // ========================================
   // 🚫 404 HANDLER
