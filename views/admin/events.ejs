@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C3 Admin | Manage Events</title>
+
+  <!-- Icons + Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at 20% 20%, #070d1f, #040712);
+      color: #e4e9ff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #00e0ff;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    }
+
+    .admin-container {
+      width: 95%;
+      max-width: 1000px;
+      background: rgba(15, 25, 40, 0.8);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .admin-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #bcd4ef;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e4e9ff;
+      font-size: 0.9rem;
+      resize: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #00e0ff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    textarea {
+      grid-column: span 2;
+      height: 100px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 0.9rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-btn {
+      grid-column: span 2;
+      background: linear-gradient(90deg, #00e0ff, #d94eff);
+      color: #fff;
+    }
+
+    .add-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Event Cards */
+    .event-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    }
+
+    .event-card h3 {
+      color: #00e0ff;
+      margin-bottom: 0.4rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .edit-btn, .delete-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+    }
+
+    .edit-btn {
+      background: #00e0ff;
+      color: #000;
+    }
+
+    .edit-btn:hover {
+      background: #00ffff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    }
+
+    .delete-btn {
+      background: #ff3b3b;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background: #ff1a1a;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: rgba(15, 25, 40, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 14px;
+      width: 90%;
+      max-width: 600px;
+      padding: 2rem;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: transparent;
+      color: #00e0ff;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .save-btn {
+      background: linear-gradient(90deg, #00e0ff, #d94eff);
+      color: #fff;
+      margin-top: 1rem;
+    }
+
+    .save-btn:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .back-home {
+      margin-top: 2rem;
+      color: #00e0ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      text-shadow: 0 0 8px #00e0ff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🛠 Manage Events</h1>
+
+  <div class="admin-container">
+    <!-- ADD EVENT FORM -->
+    <form action="/admin/events" method="POST" class="admin-form">
+      <label>Event Name:</label>
+      <input type="text" name="name" placeholder="Enter event name" required>
+
+      <label>Date:</label>
+      <input type="date" name="date" required>
+
+      <label>Location:</label>
+      <input type="text" name="location" placeholder="e.g. CSE Block">
+
+      <label>Prize:</label>
+      <input type="text" name="prize" placeholder="₹5000 / Certificates">
+
+      <label>Image Link:</label>
+      <input type="text" name="imagelink" placeholder="https://example.com/poster.jpg">
+
+      <label>Register Link:</label>
+      <input type="text" name="link" placeholder="https://forms.gle/yourformlink">
+
+      <label>Description:</label>
+      <textarea name="description" placeholder="Event description"></textarea>
+
+      <button type="submit" class="add-btn"><i class="fas fa-plus"></i> Add Event</button>
+    </form>
+
+    <h2>📅 Existing Events</h2>
+    <div class="event-list">
+      <% if (events && events.length > 0) { %>
+        <% events.forEach(e => { %>
+          <div class="event-card">
+            <h3><%= e.name %></h3>
+            <p><strong>Date:</strong> <%= new Date(e.date).toLocaleDateString('en-IN') %></p>
+            <p><strong>Location:</strong> <%= e.location %></p>
+            <p><strong>Prize:</strong> <%= e.prize %></p>
+            <small><strong>Link:</strong> <%= e.link || '—' %></small>
+
+            <div class="btn-group">
+              <button class="edit-btn" onclick="openEditModal('<%= e._id %>')"><i class="fas fa-edit"></i> Edit</button>
+              <form action="/admin/events/delete/<%= e._id %>" method="POST" style="display:inline;">
+                <button class="delete-btn"><i class="fas fa-trash"></i> Delete</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- EDIT MODAL -->
+          <div class="modal" id="modal-<%= e._id %>">
+            <div class="modal-content">
+              <button class="close-btn" onclick="closeEditModal('<%= e._id %>')"><i class="fas fa-times"></i></button>
+              <h2>Edit Event</h2>
+              <form method="POST" action="/admin/events/edit/<%= e._id %>">
+                <label>Name:</label>
+                <input type="text" name="name" value="<%= e.name %>">
+
+                <label>Date:</label>
+                <input type="date" name="date" value="<%= e.date.toISOString().split('T')[0] %>">
+
+                <label>Location:</label>
+                <input type="text" name="location" value="<%= e.location %>">
+
+                <label>Prize:</label>
+                <input type="text" name="prize" value="<%= e.prize %>">
+
+                <label>Register Link:</label>
+                <input type="text" name="link" value="<%= e.link %>">
+
+                <label>Description:</label>
+                <textarea name="description"><%= e.description %></textarea>
+
+                <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Changes</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No events added yet.</p>
+      <% } %>
+    </div>
+  </div>
+
+  <a href="/" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+  <script>
+    function openEditModal(id) {
+      document.getElementById(`modal-${id}`).style.display = "flex";
+    }
+    function closeEditModal(id) {
+      document.getElementById(`modal-${id}`).style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Settings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 20%, #030a18, #000510);
+      font-family: "Poppins", sans-serif;
+      color: #e4e9ff;
+      text-align: center;
+      padding: 3rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: #00e0ff;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .toggle-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .toggle-container:hover {
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.25);
+    }
+
+    .toggle-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .toggle-label span {
+      font-size: 1.1rem;
+      color: #cfe9ff;
+    }
+
+    button {
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    }
+
+    button.active {
+      background: #ff3b3b;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(255, 60, 60, 0.3);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #00e0ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      text-shadow: 0 0 10px #00e0ff;
+    }
+
+    /* ✅ Success message fade */
+    .flash-msg {
+      margin-top: 1.5rem;
+      color: #00ffaa;
+      font-weight: 600;
+      animation: fadeOut 3s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      70% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>⚙️ Admin Settings</h2>
+
+  <div class="toggle-container">
+    <form action="/admin/settings/toggle-exam" method="POST">
+      <label class="toggle-label">
+        <span>Exam Portal Status:</span>
+
+        <% if (examLive) { %>
+          <button type="submit" class="active">LIVE 🔴 (Click to Turn Off)</button>
+          <p class="flash-msg">✅ Exam portal is currently LIVE</p>
+        <% } else { %>
+          <button type="submit">OFF ⚪ (Click to Turn On)</button>
+          <p class="flash-msg">Exam portal is currently OFF</p>
+        <% } %>
+      </label>
+    </form>
+  </div>
+
+  <a href="/admin/dashboard" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back to Dashboard
+  </a>
+</body>
+</html>

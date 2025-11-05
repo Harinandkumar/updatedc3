@@ -1,0 +1,18 @@
+<h1>Manage Notices</h1>
+<form method="POST" action="/admin/notices">
+  <input name="title" placeholder="Notice Title" required />
+  <textarea name="message" placeholder="Notice Message"></textarea>
+  <button type="submit">Add Notice</button>
+</form>
+
+<hr />
+<ul>
+  <% notices.forEach(n => { %>
+    <li>
+      <strong><%= n.title %></strong>
+      <form action="/admin/notices/delete/<%= n._id %>" method="POST" style="display:inline">
+        <button>🗑️</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>

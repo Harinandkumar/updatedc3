@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- ✅ Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Creative Coding Community (C3) at GEC Samastipur — A hub for hackathons, workshops, coding challenges, and innovation. Join us to learn, create, and grow with passionate coders.">
+<meta name="keywords" content="Creative Coding Community, C3, GEC Samastipur, coding club, hackathon, bootcamp, programming, coding events, software development, projects, AI, Web Dev, open source, coding challenges, Bihar">
+<meta name="author" content="Creative Coding Community">
+<meta name="robots" content="index, follow" />
+
+<!-- ✅ Open Graph (Facebook / WhatsApp / LinkedIn Preview) -->
+<meta property="og:title" content="Creative Coding Community | GEC Samastipur" />
+<meta property="og:description" content="Join the Creative Coding Community (C3) — Participate in hackathons, coding events, and collaborative learning at GEC Samastipur." />
+<meta property="og:image" content="https://c3community.netlify.app/assets/img/logowithoutname.png" />
+<meta property="og:url" content="https://c3community.netlify.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_IN" />
+<meta property="og:site_name" content="Creative Coding Community (C3)" />
+
+<!-- ✅ Social Media Profiles -->
+<meta property="og:see_also" content="https://www.instagram.com/creativecoding_community/" />
+<meta property="og:see_also" content="https://t.me/c3gecs" />
+<meta property="og:see_also" content="https://whatsapp.com/channel/0029Vb2vAkxHVvThOOPZC40z" />
+<meta property="og:see_also" content="https://www.linkedin.com/company/creative-coding-community/" />
+
+<!-- ✅ Twitter Card (X Preview) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Creative Coding Community | GEC Samastipur" />
+<meta name="twitter:description" content="Learn, build, and innovate with C3 — The coding club at GEC Samastipur." />
+<meta name="twitter:image" content="https://c3community.netlify.app/assets/img/logowithoutname.png" />
+
+<!-- ✅ Canonical URL -->
+<link rel="canonical" href="https://c3community.netlify.app/" />
+
+<!-- ✅ Favicon -->
+<link rel="icon" type="image/png" href="/assets/img/logowithoutname.png" />
+
+<!-- ✅ Structured Data (Google Knowledge Graph Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Creative Coding Community",
+  "alternateName": "C3 GEC Samastipur",
+  "url": "https://c3community.netlify.app/",
+  "logo": "https://c3community.netlify.app/assets/img/logowithoutname.png",
+  "sameAs": [
+    "https://www.instagram.com/creativecoding_community/",
+    "https://t.me/c3gecs",
+    "https://whatsapp.com/channel/0029Vb2vAkxHVvThOOPZC40z",
+    "https://www.linkedin.com/company/creative-coding-community/"
+  ],
+  "description": "Creative Coding Community (C3) at GEC Samastipur — The official coding club for innovation, hackathons, and collaboration.",
+  "foundingDate": "2023",
+  "foundingLocation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Government Engineering College, Samastipur"
+  }
+}
+</script>
+
+<!-- ✅ Title -->
+<title>Creative Coding Community | GEC Samastipur</title>
+
+  <title>C3 | Creative Coding Community</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* 🟢 LIVE Badge Styling */
+    .live-badge {
+      background: #ff3b3b;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-left: 6px;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; box-shadow: 0 0 10px #ff3b3b; }
+      50% { opacity: 0.7; box-shadow: 0 0 4px #ff3b3b; }
+      100% { opacity: 1; box-shadow: 0 0 10px #ff3b3b; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌌 Responsive C3 Loader -->
+  <div id="preloader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <img src="/assets/img/logowithoutname.png" alt="C3 Logo" />
+        <div class="glow-ring"></div>
+      </div>
+      <h2 class="loader-text">Creative Coding Community</h2>
+    </div>
+  </div>
+
+  <!-- 🌐 Navbar -->
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <img src="/assets/img/logowithoutname.png" alt="C3 Logo" />
+          <h1>Creative Coding Community</h1>
+        </a>
+
+        <!-- 🍔 Hamburger -->
+        <div class="nav-toggle" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- 🔗 Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+          <li><a href="/team"><i class="fas fa-users"></i> Team</a></li>
+          <li><a href="/gallery"><i class="fas fa-images"></i> Gallery</a></li>
+
+          <!-- 🧠 Exam Portal Link (Dynamic) -->
+          <li>
+            <a href="https://examplatform-1.onrender.com/" target="_blank">
+              <i class="fas fa-file-alt"></i> Exam
+              <% if (examLive) { %>
+                <span class="live-badge">LIVE</span>
+              <% } %>
+            </a>
+          </li>
+
+          <li><a href="#notices"><i class="fas fa-bullhorn"></i> Notices</a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="/admin/login"><i class="fas fa-sign-in-alt"></i> Admin</a></li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 💫 HERO SECTION -->
+  <!-- 💫 HERO SECTION -->
+<!-- 💫 HERO SECTION -->
+<section id="home" class="hero-section">
+  <!-- Matrix Canvas Background -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- 🌈 Floating Neon Circles -->
+  <div class="floating-circles">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+  </div>
+
+  <!-- Semi-transparent overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- 🌟 Hero Content -->
+  <div class="hero-content">
+    <h1 class="hero-title" data-aos="fade-up">
+      Creative <span>Coding</span> Community
+    </h1>
+    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Join our vibrant community of coders, creators, and innovators. Collaborate, learn, and build amazing projects with like-minded individuals.
+    </p>
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
+      <a href="#events" class="btn-primary"><i class="fas fa-calendar"></i> Explore Events</a>
+      <a href="/team" class="btn-outline"><i class="fas fa-users"></i> Meet the Team</a>
+    </div>
+  </div>
+</section>
+
+  <!-- ⚡ EVENTS SECTION -->
+  <section id="events" class="section events-section">
+    <div class="section-header">
+      <h2>Upcoming Events</h2>
+      <p>Explore our latest hackathons, workshops, and coding challenges.</p>
+    </div>
+
+    <div class="events-grid" id="eventsGrid">
+      <% if (events && events.length > 0) { %>
+        <% events.forEach(e => { %>
+          <div class="event-card" data-aos="fade-up">
+            <div class="event-image-box">
+              <img src="<%= e.imagelink || '/assets/img/default-event.jpg' %>" alt="<%= e.name %>" class="event-image" />
+            </div>
+            <div class="event-info">
+              <h3><%= e.name %></h3>
+              <p><%= e.description || 'No description available.' %></p>
+              <div class="event-meta">
+                <span><i class="far fa-calendar-alt"></i> 
+                  <%= e.date ? new Date(e.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'TBA' %>
+                </span>
+                <span><i class="fas fa-map-marker-alt"></i> <%= e.location || 'TBA' %></span>
+                <span><i class="fas fa-trophy"></i> <%= e.prize || 'Exciting Rewards' %></span>
+              </div>
+              <a href="<%= e.link && e.link.trim() !== '' ? e.link : 'https://forms.gle/XYZ123' %>" 
+                 target="_blank" class="event-btn">Register Now</a>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="no-events">No upcoming events yet 🚫</p>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- 📢 NOTICES SECTION -->
+  <section id="notices" class="section notices-section">
+    <div class="section-header">
+      <h2>Latest Notices</h2>
+      <p>Stay updated with the latest announcements and opportunities 💬</p>
+    </div>
+
+    <div class="notices-container" id="noticesContainer">
+      <% if (notices && notices.length > 0) { %>
+        <% notices.forEach(n => { %>
+          <div class="notice-item" data-aos="fade-up">
+            <h4><%= n.title %></h4>
+            <p><%= n.message %></p>
+            <small><i class="far fa-clock"></i>
+              <%= new Date(n.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+            </small>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No new notices at the moment 📭</p>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- 🦶 FOOTER SECTION -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="/assets/img/logowithoutname.png" alt="C3 Logo" />
+          <h3>Creative Coding Community</h3>
+        </div>
+        <p>Empowering coders through creativity, collaboration, and innovation 🚀</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>GEC Samastipur, Bihar</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>creativecodingcodingcommunity@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="footer-col social-col">
+        <h4>Follow Us</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/creativecoding_community/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/c3gecs" target="_blank"><i class="fab fa-telegram"></i></a>
+          <a href="https://whatsapp.com/channel/0029Vb2vAkxHVvThOOPZC40z" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Creative Coding Community | Developed with ❤️ by C3 Team</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

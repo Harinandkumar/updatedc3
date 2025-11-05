@@ -1,0 +1,364 @@
+/* 🌌 GALLERY PAGE BASE */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at 30% 30%, #020c1b, #000814);
+  color: #e4e9ff;
+  overflow-x: hidden;
+}
+
+/* 🖼️ HERO SECTION */
+.gallery-hero {
+  text-align: center;
+  padding: 6rem 2rem 3rem;
+  background: rgba(10, 15, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.gallery-hero h1 {
+  color: #00e0ff;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.gallery-hero p {
+  color: #bcd4ef;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* 🔙 BACK BUTTON */
+.back-btn {
+  display: inline-block;
+  margin-top: 1.8rem;
+  background: rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  color: #00e0ff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn i {
+  margin-right: 8px;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #00e0ff, #00ffaa);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* 📸 GALLERY GRID */
+.gallery-page {
+  padding: 4rem 2rem 5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(15, 25, 40, 0.8);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,255,255,0.25));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h3 {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .gallery-hero h1 {
+    font-size: 1.9rem;
+  }
+  .gallery-hero p {
+    font-size: 0.95rem;
+  }
+  .back-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+
+
+/* ================================
+   🪞 FULL IMAGE MODAL / LIGHTBOX
+================================ */
+/* ================================
+   🪞 FULL IMAGE MODAL / LIGHTBOX
+================================ */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 5, 15, 0.85);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  animation: zoomIn 0.25s ease;
+  object-fit: contain;
+}
+
+#caption {
+  margin-top: 15px;
+  text-align: center;
+  color: #bcd4ef;
+  font-size: 1rem;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: #00e0ff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* 🔄 Animations */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 📱 Responsive Fix */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 75vh;
+  }
+  .close-modal {
+    right: 20px;
+    top: 15px;
+    font-size: 1.8rem;
+  }
+}
+/* ===============================
+   🪞 FULLSCREEN IMAGE MODAL FIXED
+================================= */
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 10, 20, 0.85);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.img-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  object-fit: contain;
+  animation: zoomIn 0.3s ease;
+}
+
+.caption {
+  margin-top: 15px;
+  color: #bcd4ef;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #00e0ff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+/* 🔄 Animations */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .modal-img {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+  .close-btn {
+    font-size: 1.7rem;
+    right: 20px;
+  }
+}
+/* ===========================
+   🖼️ SWIPE & ARROW NAVIGATION
+=========================== */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #00e0ff;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+  padding: 0.8rem;
+  background: rgba(0, 20, 30, 0.3);
+  border-radius: 50%;
+}
+
+.arrow:hover {
+  background: rgba(0, 255, 255, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    font-size: 1.6rem;
+    padding: 0.6rem;
+  }
+  .arrow.left {
+    left: 10px;
+  }
+  .arrow.right {
+    right: 10px;
+  }
+}
+/* ================================
+   ✨ FADE + ZOOM IMAGE ANIMATION
+================================ */
+.modal-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  object-fit: contain;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.modal-img.fade {
+  opacity: 0;
+  transform: scale(0.95);
+  box-shadow: 0 0 0 rgba(0, 255, 255, 0);
+}
+
+/* Subtle glow pulse for active image */
+.img-modal.active .modal-img {
+  animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.45);
+  }
+}

@@ -1,0 +1,83 @@
+# ==========================================
+# 🚀 C3 Website (Node.js + Express + MongoDB)
+# ==========================================
+
+# --- Node dependencies ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Environment variables ---
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# --- Logs & Cache ---
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# --- Build / Dist / Temp files ---
+dist/
+build/
+coverage/
+tmp/
+temp/
+.cache/
+.next/
+out/
+public/uploads/
+uploads/
+
+# --- IDE & Editor files ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- OS-specific ---
+ehthumbs.db
+Icon?
+desktop.ini
+
+# --- Local Mongo / Data dumps ---
+dump/
+*.bson
+*.json
+*.zip
+
+# --- Sessions / Express temp data ---
+sessions/
+*.session
+*.sessionstore
+
+# --- Optional Netlify or Render build artifacts ---
+.netlify/
+.vercel/
+render.yaml
+
+# --- Optional PM2 or Nodemon logs ---
+pmlogs/
+.pids/
+*.out
+*.err
+
+# --- Optional test coverage ---
+coverage/
+.jest/
+.cypress/
+
+# --- Optional generated assets ---
+public/sitemap.xml
+public/robots.txt
+!public/assets/
+!public/css/
+!public/js/

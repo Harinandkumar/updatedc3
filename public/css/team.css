@@ -1,0 +1,285 @@
+/* ===========================
+   👥 TEAM PAGE STYLES
+=========================== */
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at 30% 30%, #020c1b, #000814);
+  color: #e4e9ff;
+  scroll-behavior: smooth;
+}
+
+/* 🔹 Hero Section */
+.team-hero {
+  text-align: center;
+  padding: 6rem 2rem 3rem;
+  background: linear-gradient(180deg, #030b16, #071426);
+}
+
+.team-hero h1 {
+  color: #00e0ff;
+  font-size: 2.4rem;
+}
+
+.team-hero p {
+  color: #bcd4ef;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #00e0ff;
+  border: 1px solid #00e0ff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #00e0ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* 🔹 Team Grid */
+.team-page {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* 🔹 Card Style */
+.team-card {
+  background: rgba(15, 25, 40, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  padding: 2rem 1rem;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+/* 🔹 Profile Image */
+.team-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 3px solid rgba(0, 255, 255, 0.4);
+  transition: all 0.4s ease;
+}
+
+.team-card:hover .team-img {
+  transform: scale(1.1);
+  border-color: #00f0ff;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔹 Text */
+.team-card h3 {
+  color: #00e0ff;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.role {
+  color: #bcd4ef;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 🔹 Social Icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: #a8c8e5;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #00e0ff;
+  transform: scale(1.2);
+}
+
+/* 💫 Animation */
+.team-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, rgba(0, 255, 255, 0.25), transparent 60%);
+  transform: rotate(0deg);
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.team-card:hover::before {
+  animation: rotateGlow 6s linear infinite;
+  opacity: 1;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .team-hero h1 { font-size: 2rem; }
+  .team-img { width: 100px; height: 100px; }
+}
+/* Coordinators & Sub-Coordinators */
+.team-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(5, 10, 20, 0.3);
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.team-section h2 {
+  color: #00e0ff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sub-card {
+  background: rgba(15, 25, 40, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+}
+
+.sub-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.sub-card h3 {
+  color: #00e0ff;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.sub-card .roll {
+  color: #bcd4ef;
+  font-size: 0.85rem;
+}
+/* 👨‍🏫 Faculty Mentor Section */
+#faculty-mentors {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #050b16 0%, #0a1127 100%);
+}
+
+.faculty-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.faculty-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+}
+
+.faculty-img-box {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+}
+
+.faculty-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faculty-card h3 {
+  color: #00e0ff;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.faculty-dept {
+  color: #bcd4ef;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.faculty-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.faculty-links a {
+  color: #a8c8e5;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.faculty-links a:hover {
+  color: #00e0ff;
+  transform: scale(1.2);
+}
+
