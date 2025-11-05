@@ -1,83 +1,56 @@
-# ==========================================
-# 🚀 C3 Website (Node.js + Express + MongoDB)
-# ==========================================
+# =======================================================
+# 🧠 C3 Website - Node.js + Express + MongoDB + Render
+# =======================================================
 
-# --- Node dependencies ---
+# 🧩 Node dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# --- Environment variables ---
+# 🧠 Environment files (Render pe manually set honge)
 .env
 .env.local
-.env.production
-.env.development
-.env.test
+.env.*.local
 
-# --- Logs & Cache ---
-logs/
+# 🧱 Logs and temporary files
+logs
 *.log
-pids/
+pids
 *.pid
 *.seed
 *.pid.lock
 
-# --- Build / Dist / Temp files ---
+# 🧰 Build artifacts
 dist/
 build/
-coverage/
-tmp/
-temp/
 .cache/
-.next/
-out/
-public/uploads/
-uploads/
-
-# --- IDE & Editor files ---
-.vscode/
-.idea/
-*.swp
-*.swo
+coverage/
 .DS_Store
 Thumbs.db
 
-# --- OS-specific ---
+# ⚙️ IDE / Editor folders
+.vscode/
+.idea/
+*.swp
+
+# 🧪 Render and local cache
+.render/
+.tmp/
+.cache/
+
+# 🧾 System files
+*.bak
+*.tmp
+*.orig
+
+# 🚀 OS and Git files
 ehthumbs.db
-Icon?
-desktop.ini
+Desktop.ini
 
-# --- Local Mongo / Data dumps ---
-dump/
-*.bson
-*.json
-*.zip
+# 🪶 Optional: if you ever use React/Next for frontend
+.next/
+out/
 
-# --- Sessions / Express temp data ---
-sessions/
-*.session
-*.sessionstore
-
-# --- Optional Netlify or Render build artifacts ---
-.netlify/
-.vercel/
-render.yaml
-
-# --- Optional PM2 or Nodemon logs ---
-pmlogs/
-.pids/
-*.out
-*.err
-
-# --- Optional test coverage ---
-coverage/
-.jest/
-.cypress/
-
-# --- Optional generated assets ---
-public/sitemap.xml
-public/robots.txt
-!public/assets/
-!public/css/
-!public/js/
+# 🧩 Misc
+package-lock.json
