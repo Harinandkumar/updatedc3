@@ -2,18 +2,160 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/css/main.css" />
+  <title>Admin Dashboard | C3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 30% 30%, #020c1b, #000814);
+      color: #e4f2ff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      color: #00e0ff;
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+
+    .card i {
+      font-size: 2.2rem;
+      color: #00e0ff;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #00f0ff, #d94eff);
+      color: #000;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .logout {
+      text-align: center;
+      margin: 2rem;
+    }
+
+    .logout a {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .logout a:hover {
+      color: #ff7b7b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #88bce6;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
+
 <body>
-  <div class="admin-nav">
-    <a href="/admin/events">📅 Events</a>
-    <a href="/admin/notices">📢 Notices</a>
-    <a href="/admin/logout">🚪 Logout</a>
+  <header>
+    <h1>⚙️ Admin Dashboard</h1>
+  </header>
+
+  <div class="dashboard-container">
+
+    <div class="card">
+      <i class="fas fa-calendar-alt"></i>
+      <h3>Manage Events</h3>
+      <a href="/admin/events" class="btn">Go to Events</a>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-bullhorn"></i>
+      <h3>Manage Notices</h3>
+      <a href="/admin/notices" class="btn">Go to Notices</a>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-user-astronaut"></i>
+      <h3>Coder of the Month</h3>
+      <a href="/admin/coders" class="btn">Go to Coders</a>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-trophy"></i>
+      <h3>Event Winners (Top 3)</h3>
+      <a href="/admin/winners" class="btn">Go to Winners</a>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-cog"></i>
+      <h3>Settings</h3>
+      <a href="/admin/settings" class="btn">Open Settings</a>
+    </div>
+
   </div>
 
-  <h1>Admin Dashboard</h1>
-  <p>Total Events: <%= eventCount %></p>
-  <p>Total Notices: <%= noticeCount %></p>
+  <div class="logout">
+    <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <footer>
+    © 2025 Creative Coding Community | Admin Panel
+  </footer>
 </body>
 </html>

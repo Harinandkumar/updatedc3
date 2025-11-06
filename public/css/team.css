@@ -1,6 +1,7 @@
-/* ===========================
-   👥 TEAM PAGE STYLES
-=========================== */
+/* ==========================================
+   🌌 Creative Coding Community - TEAM PAGE
+   Glassmorphism + Filters + Responsive Fix
+========================================== */
 
 body {
   margin: 0;
@@ -8,35 +9,58 @@ body {
   background: radial-gradient(circle at 30% 30%, #020c1b, #000814);
   color: #e4e9ff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* 🔹 Hero Section */
+/* 🧭 Hero Section */
 .team-hero {
   text-align: center;
   padding: 6rem 2rem 3rem;
   background: linear-gradient(180deg, #030b16, #071426);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-hero::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.15), transparent 70%);
+  top: -250px;
+  left: -200px;
+  filter: blur(20px);
+  animation: floatGlow 10s infinite linear;
+}
+
+@keyframes floatGlow {
+  0% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(30px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.6; }
 }
 
 .team-hero h1 {
   color: #00e0ff;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
 }
 
 .team-hero p {
   color: #bcd4ef;
-  margin-top: 0.6rem;
   font-size: 1rem;
+  margin-bottom: 1.8rem;
 }
 
 .back-btn {
   display: inline-block;
-  margin-top: 1.5rem;
   color: #00e0ff;
   border: 1px solid #00e0ff;
   padding: 0.6rem 1.4rem;
-  border-radius: 25px;
+  border-radius: 30px;
   font-weight: 600;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .back-btn:hover {
@@ -45,12 +69,119 @@ body {
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
 }
 
-/* 🔹 Team Grid */
-.team-page {
-  padding: 4rem 2rem;
+/* 🎚️ Filter Bar */
+.filter-bar {
   text-align: center;
+  margin: 2rem auto 3rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
+.filter-btn {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00e0ff;
+  padding: 0.6rem 1.3rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #00e0ff;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* 🧱 Section Wrapper */
+.team-section,
+#faculty-mentors {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(5, 10, 20, 0.25);
+  border-top: 1px solid rgba(0, 255, 255, 0.05);
+}
+
+.team-section h2,
+#faculty-mentors h2 {
+  color: #00e0ff;
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+
+/* 👨‍🏫 Faculty Mentor */
+.faculty-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.faculty-card {
+  width: 260px;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.faculty-img-box {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.faculty-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faculty-card h3 {
+  color: #00e0ff;
+  font-size: 1.15rem;
+  margin-top: 0.4rem;
+}
+
+.faculty-dept {
+  color: #bcd4ef;
+  font-size: 0.95rem;
+}
+
+.faculty-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.faculty-links a {
+  color: #a8c8e5;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.faculty-links a:hover {
+  color: #00e0ff;
+  transform: scale(1.2);
+}
+
+/* 👥 Core + Coordinators */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -58,36 +189,29 @@ body {
   justify-content: center;
 }
 
-/* 🔹 Card Style */
 .team-card {
-  background: rgba(15, 25, 40, 0.8);
+  background: rgba(15, 25, 40, 0.75);
   border-radius: 16px;
   border: 1px solid rgba(0, 255, 255, 0.15);
   padding: 2rem 1rem;
   transition: all 0.4s ease;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .team-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
 }
 
-/* 🔹 Profile Image */
 .team-img {
   width: 130px;
   height: 130px;
-  border-radius: 50%;
-  overflow: hidden;
   margin: 0 auto 1rem;
-  border: 3px solid rgba(0, 255, 255, 0.4);
-  transition: all 0.4s ease;
-}
-
-.team-card:hover .team-img {
-  transform: scale(1.1);
-  border-color: #00f0ff;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .team-img img {
@@ -96,11 +220,15 @@ body {
   object-fit: cover;
 }
 
-/* 🔹 Text */
+.team-card:hover .team-img {
+  border-color: #00f0ff;
+  transform: scale(1.1);
+}
+
 .team-card h3 {
   color: #00e0ff;
-  font-size: 1.1rem;
-  margin: 0.5rem 0 0.2rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
 }
 
 .role {
@@ -109,7 +237,6 @@ body {
   margin-bottom: 0.8rem;
 }
 
-/* 🔹 Social Icons */
 .social-links {
   display: flex;
   justify-content: center;
@@ -118,168 +245,81 @@ body {
 
 .social-links a {
   color: #a8c8e5;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: color 0.3s, transform 0.3s;
 }
 
 .social-links a:hover {
   color: #00e0ff;
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
-/* 💫 Animation */
-.team-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 180deg, rgba(0, 255, 255, 0.25), transparent 60%);
-  transform: rotate(0deg);
-  transition: opacity 0.3s;
-  opacity: 0;
-}
-
-.team-card:hover::before {
-  animation: rotateGlow 6s linear infinite;
-  opacity: 1;
-}
-
-@keyframes rotateGlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .team-hero h1 { font-size: 2rem; }
-  .team-img { width: 100px; height: 100px; }
-}
-/* Coordinators & Sub-Coordinators */
-.team-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: rgba(5, 10, 20, 0.3);
-  margin-top: 2rem;
-  border-top: 1px solid rgba(0, 255, 255, 0.1);
-}
-
-.team-section h2 {
-  color: #00e0ff;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
+/* 🏅 Sub-Coordinators Responsive Fix */
 .sub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.8rem;
   margin-top: 2rem;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .sub-card {
-  background: rgba(15, 25, 40, 0.8);
-  border-radius: 12px;
+  background: rgba(15, 25, 40, 0.85);
+  border-radius: 14px;
   border: 1px solid rgba(0, 255, 255, 0.15);
-  padding: 1.2rem;
+  padding: 1.3rem;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .sub-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
 }
 
+/* 🖼️ Responsive Image Fix */
 .sub-card img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.sub-card:hover img {
+  transform: scale(1.05);
 }
 
 .sub-card h3 {
   color: #00e0ff;
   font-size: 1rem;
   margin-bottom: 0.2rem;
+  font-weight: 600;
 }
 
 .sub-card .roll {
   color: #bcd4ef;
   font-size: 0.85rem;
 }
-/* 👨‍🏫 Faculty Mentor Section */
-#faculty-mentors {
-  padding: 5rem 2rem;
-  text-align: center;
-  background: linear-gradient(180deg, #050b16 0%, #0a1127 100%);
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .team-hero h1 { font-size: 2rem; }
+  .team-img { width: 110px; height: 110px; }
+  .faculty-card { width: 200px; }
+  .sub-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .sub-card img { aspect-ratio: 1 / 1.2; }
 }
 
-.faculty-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
+@media (max-width: 480px) {
+  .sub-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .sub-card img { aspect-ratio: 1 / 1.1; }
 }
-
-.faculty-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  width: 260px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.team-section {
+  transition: opacity 0.3s ease;
 }
-
-.faculty-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
-}
-
-.faculty-img-box {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 1rem;
-  border: 3px solid rgba(0, 255, 255, 0.3);
-}
-
-.faculty-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.faculty-card h3 {
-  color: #00e0ff;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-.faculty-dept {
-  color: #bcd4ef;
-  font-size: 0.95rem;
-  margin-bottom: 0.8rem;
-}
-
-.faculty-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.faculty-links a {
-  color: #a8c8e5;
-  font-size: 1.2rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.faculty-links a:hover {
-  color: #00e0ff;
-  transform: scale(1.2);
-}
-

@@ -3,115 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <!-- ✅ Basic SEO Meta Tags -->
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Creative Coding Community (C3) at GEC Samastipur — A hub for hackathons, workshops, coding challenges, and innovation. Join us to learn, create, and grow with passionate coders.">
-<meta name="keywords" content="Creative Coding Community, C3, GEC Samastipur, coding club, hackathon, bootcamp, programming, coding events, software development, projects, AI, Web Dev, open source, coding challenges, Bihar">
-<meta name="author" content="Creative Coding Community">
-<meta name="robots" content="index, follow" />
-
-<!-- ✅ Open Graph (Facebook / WhatsApp / LinkedIn Preview) -->
-<meta property="og:title" content="Creative Coding Community | GEC Samastipur" />
-<meta property="og:description" content="Join the Creative Coding Community (C3) — Participate in hackathons, coding events, and collaborative learning at GEC Samastipur." />
-<meta property="og:image" content="https://c3community.netlify.app/assets/img/logowithoutname.png" />
-<meta property="og:url" content="https://c3community.netlify.app/" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="en_IN" />
-<meta property="og:site_name" content="Creative Coding Community (C3)" />
-
-<!-- ✅ Social Media Profiles -->
-<meta property="og:see_also" content="https://www.instagram.com/creativecoding_community/" />
-<meta property="og:see_also" content="https://t.me/c3gecs" />
-<meta property="og:see_also" content="https://whatsapp.com/channel/0029Vb2vAkxHVvThOOPZC40z" />
-<meta property="og:see_also" content="https://www.linkedin.com/company/creative-coding-community/" />
-
-<!-- ✅ Twitter Card (X Preview) -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Creative Coding Community | GEC Samastipur" />
-<meta name="twitter:description" content="Learn, build, and innovate with C3 — The coding club at GEC Samastipur." />
-<meta name="twitter:image" content="https://c3community.netlify.app/assets/img/logowithoutname.png" />
-
-<!-- ✅ Canonical URL -->
-<link rel="canonical" href="https://c3community.netlify.app/" />
-
-<!-- ✅ Favicon -->
-<link rel="icon" type="image/png" href="/assets/img/logowithoutname.png" />
-
-<!-- ✅ Structured Data (Google Knowledge Graph Schema.org) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Creative Coding Community",
-  "alternateName": "C3 GEC Samastipur",
-  "url": "https://c3community.netlify.app/",
-  "logo": "https://c3community.netlify.app/assets/img/logowithoutname.png",
-  "sameAs": [
-    "https://www.instagram.com/creativecoding_community/",
-    "https://t.me/c3gecs",
-    "https://whatsapp.com/channel/0029Vb2vAkxHVvThOOPZC40z",
-    "https://www.linkedin.com/company/creative-coding-community/"
-  ],
-  "description": "Creative Coding Community (C3) at GEC Samastipur — The official coding club for innovation, hackathons, and collaboration.",
-  "foundingDate": "2023",
-  "foundingLocation": {
-    "@type": "CollegeOrUniversity",
-    "name": "Government Engineering College, Samastipur"
-  }
-}
-</script>
-
-<!-- ✅ Title -->
-
   <title>Our Team | Creative Coding Community</title>
   <link rel="stylesheet" href="/css/team.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
+  <!-- 🧭 Hero -->
   <section class="team-hero">
     <h1><i class="fas fa-users"></i> Meet Our Team</h1>
     <p>Innovators, coordinators, and builders of the C3 Community 🚀</p>
     <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </section>
 
-  <!-- 👨‍🏫 FACULTY MENTOR SECTION -->
+  <!-- 🔍 Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="core">Core Team</button>
+    <button class="filter-btn" data-filter="coordinator">Coordinators</button>
+    <button class="filter-btn" data-filter="sub">Sub-Coordinators</button>
+  </div>
+
+  <!-- 👨‍🏫 Faculty Mentors (Always Visible) -->
   <section class="section" id="faculty-mentors">
-      <div class="section-title">
-          <h2>Our Faculty Mentors</h2>
+    <div class="section-title">
+      <h2>Our Faculty Mentors</h2>
+    </div>
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <div class="faculty-img-box">
+          <img src="/assets/img/rajesh sir.jpg" alt="Rajesh Kumar" class="faculty-img">
+        </div>
+        <h3>Rajesh Kumar</h3>
+        <p class="faculty-dept">CSE Department</p>
       </div>
-      <div class="faculty-container">
-          <div class="faculty-grid">
-              <div class="faculty-card">
-                  <div class="faculty-img-box">
-                      <img src="/assets/img/rajesh sir.jpg" alt="Faculty Mentor" class="faculty-img">
-                  </div>
-                  <h3>Rajesh Kumar</h3>
-                  <p class="faculty-dept">CSE Department</p>
-                  <div class="faculty-links">
-                      <a href="#"><i class="fab fa-github"></i></a>
-                      <a href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-              </div>
-              <div class="faculty-card">
-                  <div class="faculty-img-box">
-                      <img src="/assets/img/shafaque mam.jpg" alt="Faculty Mentor" class="faculty-img">
-                  </div>
-                  <h3>Shafaque Aziz</h3>
-                  <p class="faculty-dept">CSE Department</p>
-                  <div class="faculty-links">
-                      <a href="#"><i class="fab fa-github"></i></a>
-                      <a href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-              </div>
-          </div>
+
+      <div class="faculty-card">
+        <div class="faculty-img-box">
+          <img src="/assets/img/shafaque mam.jpg" alt="Shafaque Aziz" class="faculty-img">
+        </div>
+        <h3>Shafaque Aziz</h3>
+        <p class="faculty-dept">CSE Department</p>
       </div>
+    </div>
   </section>
 
-
-  <!-- 🌟 Core Members -->
-  <section class="team-section">
+  <!-- 🌟 Core Team -->
+  <section class="team-section core">
     <h2>Core Team</h2>
     <div class="team-grid">
       <% coreMembers.forEach(member => { %>
@@ -129,11 +67,11 @@
   </section>
 
   <!-- 👩‍💼 Coordinators -->
-  <section class="team-section">
+  <section class="team-section coordinator">
     <h2>Our Coordinators</h2>
-    <div class="team-grid faculty-grid">
+    <div class="team-grid">
       <% coordinators.forEach(member => { %>
-        <div class="faculty-card ">
+        <div class="team-card">
           <div class="team-img"><img src="<%= member.img %>" alt="<%= member.name %>"></div>
           <h3><%= member.name %></h3>
           <p class="role"><%= member.role %></p>
@@ -147,7 +85,7 @@
   </section>
 
   <!-- 🏆 Sub-Coordinators -->
-  <section class="team-section">
+  <section class="team-section sub">
     <h2>Sub-Coordinator Recruitment 2025</h2>
     <p>Congratulations to our new Sub-Coordinators 🎉</p>
     <div class="sub-grid">

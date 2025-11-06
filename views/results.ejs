@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results | C3 Events</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #020b1c, #001220);
+      color: white;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #00e0ff;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    .result-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .event-block {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .event-block:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    }
+    .event-name {
+      font-size: 1.6rem;
+      color: #00f0ff;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(0,255,255,0.2);
+      padding-bottom: 0.5rem;
+    }
+    .winner-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .winner-card {
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      width: 220px;
+      transition: 0.3s;
+    }
+    .winner-card:hover {
+      background: rgba(0,255,255,0.15);
+      transform: translateY(-3px);
+    }
+    .winner-card h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .winner-card p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      color: #bde9ff;
+    }
+    .gold { color: #ffd700; }
+    .silver { color: #c0c0c0; }
+    .bronze { color: #cd7f32; }
+  </style>
+</head>
+
+<body>
+  <h1>🏆 Event Results</h1>
+  <div class="result-container">
+    <% winners.forEach(event => { %>
+      <div class="event-block" data-aos="fade-up">
+        <h2 class="event-name"><%= event.eventName %></h2>
+        <div class="winner-list">
+          <% event.winners.forEach(w => { %>
+            <div class="winner-card <%= w.position === '1st' ? 'gold' : w.position === '2nd' ? 'silver' : 'bronze' %>">
+              <h3><%= w.position %> Place</h3>
+              <p><strong><%= w.name %></strong></p>
+              <p>Roll: <%= w.roll %></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
