@@ -3,25 +3,28 @@ const router = express.Router();
 const Event = require("../models/Event");
 const Notice = require("../models/Notice");
 const Setting = require("../models/Setting"); // ✅ Added for exam toggle
+const CoderOfMonth = require("../models/CoderOfMonth"); // ✅ NEW model import
 
 // 🏠 Home Route
 router.get("/", async (req, res) => {
   try {
-    // Fetch events, notices & exam setting from DB
-    const [events, notices, examSetting] = await Promise.all([
+    // Fetch events, notices, coders & exam setting from DB in parallel
+    const [events, notices, coders, examSetting] = await Promise.all([
       Event.find().sort({ date: -1 }),
       Notice.find().sort({ date: -1 }),
+      CoderOfMonth.find().sort({ month: -1 }).limit(2), // ✅ Only latest 2 coders
       Setting.findOne({ key: "examLive" }),
     ]);
 
     const examLive = examSetting?.value || false;
 
-    // ✅ Pass all to index.ejs
-    res.render("index", { events, notices, examLive });
+    // ✅ Pass everything to index.ejs
+    res.render("index", { events, notices, coders, examLive });
   } catch (error) {
     console.error("Error loading homepage:", error);
-    // Even if DB fails, render with empty arrays (no crash)
-    res.render("index", { events: [], notices: [], examLive: false });
+
+    // ✅ Fail-safe render (no crash)
+    res.render("index", { events: [], notices: [], coders: [], examLive: false });
   }
 });
 
@@ -49,6 +52,17 @@ router.get("/api/notices", async (req, res) => {
   } catch (err) {
     console.error("Error fetching notices:", err);
     res.status(500).json({ error: "Failed to fetch notices" });
+  }
+});
+
+// 👑 Fetch coders of the month (API)
+router.get("/api/coders", async (req, res) => {
+  try {
+    const coders = await CoderOfMonth.find().sort({ month: -1 });
+    res.json(coders);
+  } catch (err) {
+    console.error("Error fetching coders:", err);
+    res.status(500).json({ error: "Failed to fetch coders" });
   }
 });
 

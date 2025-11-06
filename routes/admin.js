@@ -3,6 +3,7 @@ const router = express.Router();
 const Event = require('../models/Event');
 const Notice = require('../models/Notice');
 const Setting = require('../models/Setting'); // ✅ Added for Exam toggle system
+const CoderOfMonth = require('../models/CoderOfMonth'); // ✅ Added new model for Coder management
 
 // 🔒 Middleware
 function ensureAdmin(req, res, next) {
@@ -33,7 +34,8 @@ router.get('/logout', (req, res) => {
 router.get('/dashboard', ensureAdmin, async (req, res) => {
   const eventCount = await Event.countDocuments();
   const noticeCount = await Notice.countDocuments();
-  res.render('admin/dashboard', { eventCount, noticeCount });
+  const coderCount = await CoderOfMonth.countDocuments(); // ✅ Count Coders
+  res.render('admin/dashboard', { eventCount, noticeCount, coderCount });
 });
 
 // 🎉 Events
@@ -52,6 +54,17 @@ router.post('/events/delete/:id', ensureAdmin, async (req, res) => {
   res.redirect('/admin/events');
 });
 
+// ✏️ Edit event
+router.post('/events/edit/:id', ensureAdmin, async (req, res) => {
+  try {
+    await Event.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/admin/events');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error updating event");
+  }
+});
+
 // 📢 Notices
 router.get('/notices', ensureAdmin, async (req, res) => {
   const notices = await Notice.find().sort({ date: -1 });
@@ -67,7 +80,6 @@ router.post('/notices/delete/:id', ensureAdmin, async (req, res) => {
   await Notice.findByIdAndDelete(req.params.id);
   res.redirect('/admin/notices');
 });
-
 
 // ⚙️ ==========================
 // 🧠 Exam Live Toggle System
@@ -100,14 +112,52 @@ router.post('/settings/toggle-exam', ensureAdmin, async (req, res) => {
     res.redirect('/admin/settings');
   }
 });
-// ✏️ Edit event
-router.post('/events/edit/:id', ensureAdmin, async (req, res) => {
+
+
+// 👑 ===============================
+// ✨ CODER OF THE MONTH MANAGEMENT
+// ===============================
+router.get('/coders', ensureAdmin, async (req, res) => {
   try {
-    await Event.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect('/admin/events');
+    const coders = await CoderOfMonth.find().sort({ month: -1 });
+    res.render('admin/coders', { coders });
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Error updating event");
+    console.error('Error loading coders:', err);
+    res.status(500).send('Error loading coders');
+  }
+});
+
+// ➕ Add new coder
+router.post('/coders', ensureAdmin, async (req, res) => {
+  try {
+    const { name, roll, achievement, image, month } = req.body;
+    await CoderOfMonth.create({ name, roll, achievement, image, month });
+    res.redirect('/admin/coders');
+  } catch (err) {
+    console.error('Error adding coder:', err);
+    res.status(500).send('Error adding coder');
+  }
+});
+
+// 🗑️ Delete coder
+router.post('/coders/delete/:id', ensureAdmin, async (req, res) => {
+  try {
+    await CoderOfMonth.findByIdAndDelete(req.params.id);
+    res.redirect('/admin/coders');
+  } catch (err) {
+    console.error('Error deleting coder:', err);
+    res.status(500).send('Error deleting coder');
+  }
+});
+
+// ✏️ Edit coder details
+router.post('/coders/edit/:id', ensureAdmin, async (req, res) => {
+  try {
+    await CoderOfMonth.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect('/admin/coders');
+  } catch (err) {
+    console.error('Error updating coder:', err);
+    res.status(500).send('Error updating coder');
   }
 });
 

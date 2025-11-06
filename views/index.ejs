@@ -210,6 +210,28 @@
       <% } %>
     </div>
   </section>
+<!-- 👑 CODER OF THE MONTH SECTION -->
+<section class="coder-section" id="coderOfMonth">
+  <h2>🔥 C3 LOGIC LEAGUE – Result 🔥</h2>
+  <h2 class="coder-title">👑 Coders of the Month</h2>
+
+  <div class="coder-row">
+    <% if (coders && coders.length > 0) { %>
+      <% coders.forEach(coder => { %>
+        <div class="coder-card coder-month">
+          <div class="coder-img-wrapper">
+            <img class="coder-img" src="<%= coder.image %>" alt="<%= coder.name %>" />
+          </div>
+          <h3><%= coder.name %></h3>
+          <p>Roll No: <%= coder.roll %></p>
+          <p>Achievement: <%= coder.achievement %></p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="no-events">No coders of the month yet 🚀</p>
+    <% } %>
+  </div>
+</section>
 
   <!-- 📢 NOTICES SECTION -->
   <section id="notices" class="section notices-section">

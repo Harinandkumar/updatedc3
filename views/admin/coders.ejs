@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Coder of the Month</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at 20% 20%, #070d1f, #040712);
+      color: #e4e9ff;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00e0ff;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .coder-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: rgba(10, 20, 40, 0.6);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .coder-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .coder-form input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.8rem;
+      color: #fff;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    .coder-form input:focus {
+      outline: none;
+      border-color: #00e0ff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+
+    .coder-form button {
+      grid-column: 1 / -1;
+      background: linear-gradient(90deg, #00f0ff, #d94eff);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .coder-form button:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: left;
+      color: #bcd4ef;
+      font-size: 0.9rem;
+    }
+
+    th {
+      color: #00e0ff;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(0, 255, 255, 0.4);
+    }
+
+    .action-btns {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .delete-btn {
+      background: #ff3b3b;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .delete-btn:hover {
+      background: #ff5b5b;
+    }
+
+    .edit-btn {
+      background: #00e0ff;
+      color: black;
+      border: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .edit-btn:hover {
+      background: #40f0ff;
+    }
+
+    @media (max-width: 768px) {
+      .coder-form {
+        grid-template-columns: 1fr;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 1rem;
+      }
+
+      td {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #00e0ff;
+      }
+
+      th {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>👑 Manage Coders of the Month</h1>
+
+  <div class="coder-container">
+    <!-- Add New Coder Form -->
+    <form class="coder-form" method="POST" action="/admin/coders">
+      <input type="text" name="name" placeholder="Coder Name" required />
+      <input type="text" name="roll" placeholder="Roll Number" required />
+      <input type="text" name="achievement" placeholder="Achievement (e.g., 1st in UI-UX Arena)" required />
+      <input type="text" name="image" placeholder="Image URL (e.g., /assets/img/coder.jpg)" required />
+      <input type="text" name="month" placeholder="Month (e.g., October 2025)" required />
+      <button type="submit"><i class="fas fa-plus-circle"></i> Add Coder</button>
+    </form>
+
+    <!-- Coder Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Roll</th>
+          <th>Achievement</th>
+          <th>Month</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (coders && coders.length > 0) { %>
+          <% coders.forEach(coder => { %>
+            <tr>
+              <td data-label="Photo"><img src="<%= coder.image %>" alt="<%= coder.name %>" /></td>
+              <td data-label="Name"><%= coder.name %></td>
+              <td data-label="Roll"><%= coder.roll %></td>
+              <td data-label="Achievement"><%= coder.achievement %></td>
+              <td data-label="Month"><%= coder.month %></td>
+              <td data-label="Actions" class="action-btns">
+                <form action="/admin/coders/delete/<%= coder._id %>" method="POST" style="display:inline;">
+                  <button type="submit" class="delete-btn"><i class="fas fa-trash"></i></button>
+                </form>
+                <form action="/admin/coders/edit/<%= coder._id %>" method="POST" style="display:inline;">
+                  <input type="hidden" name="name" value="<%= coder.name %>" />
+                  <input type="hidden" name="roll" value="<%= coder.roll %>" />
+                  <input type="hidden" name="achievement" value="<%= coder.achievement %>" />
+                  <input type="hidden" name="image" value="<%= coder.image %>" />
+                  <input type="hidden" name="month" value="<%= coder.month %>" />
+                  <button type="submit" class="edit-btn"><i class="fas fa-edit"></i></button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="6" style="text-align:center;">No coders found 💤</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
